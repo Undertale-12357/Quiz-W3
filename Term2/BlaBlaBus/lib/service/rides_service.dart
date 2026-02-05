@@ -9,30 +9,39 @@ class RidesService {
   //  filter the rides starting from given departure location
   //
   static List<Ride> _filterByDeparture(Location departure) {
-    List<Ride> emptyRides = [];
-    List<Location> availableRidesLocations = [];
+    List<Ride> tempRides = [];
     for (Ride ride in availableRides) {
-      availableRidesLocations.add(ride.departureLocation);
+      if (ride.arrivalLocation == departure) {
+        tempRides.add(ride);
+      }
     }
-    for (departure in availableRidesLocations) {
-      Ride ride = filterBy(departure: departure);
-      emptyRides.add(ride);
-    }
-    filterBy(departure: departure);
-    return [];
+    return tempRides;
   }
 
   //
   //  filter the rides starting for the given requested seat number
   //
   static List<Ride> _filterBySeatRequested(int requestedSeat) {
-    return [];
+    List<Ride> tempRides = [];
+    for (Ride ride in availableRides) {
+      if (requestedSeat == ride.availableSeats) {
+        tempRides.add(ride);
+      }
+    }
+    return tempRides;
   }
 
   //
   //  filter the rides   with several optional criteria (flexible filter options)
   //
   static List<Ride> filterBy({Location? departure, int? seatRequested}) {
+    List<Ride> tempRides = [];
+    for (Ride ride in availableRides) {
+      if (departure == ride.departureLocation ||
+          seatRequested == ride.availableSeats) {
+        tempRides.add(ride);
+      }
+    }
     return [];
   }
 }
