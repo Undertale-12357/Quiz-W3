@@ -35,13 +35,12 @@ class RidesService {
   //  filter the rides   with several optional criteria (flexible filter options)
   //
   static List<Ride> filterBy({Location? departure, int? seatRequested}) {
-    List<Ride> tempRides = [];
-    for (Ride ride in availableRides) {
-      if (departure == ride.departureLocation ||
-          seatRequested == ride.availableSeats) {
-        tempRides.add(ride);
-      }
+    if (departure == null || seatRequested == null) {
+      throw Exception("Departure or Seat that Request is not provide");
     }
-    return [];
+    List<Ride> filterByDeparture = _filterByDeparture(departure);
+    return filterByDeparture.where((rides) {
+      return rides.availableSeats >= seatRequested;
+    }).toList();
   }
 }

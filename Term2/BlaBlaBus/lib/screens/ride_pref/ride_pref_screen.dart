@@ -7,7 +7,7 @@ import '../../theme/theme.dart';
 import 'widgets/ride_pref_form.dart';
 import 'widgets/ride_pref_history_tile.dart';
 
-const String blablaHomeImagePath = 'assets/images/blabla_home.png';
+const String blablaHomeImagePath = 'assets/Term2/BlaBlaBus/assets/images/blabla_home.png';
 
 ///
 /// This screen allows user to:

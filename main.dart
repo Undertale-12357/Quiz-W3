@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'Term2/BlaBlaBus/lib/main.dart';
+import 'package:blabla/Term2/BlaBlaBus/lib/main.dart';
+
 void main() {
   runApp(
-    const MyApp()
+    MyApp()
   );
 }
